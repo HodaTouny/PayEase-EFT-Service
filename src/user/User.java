@@ -7,6 +7,13 @@ public abstract class User {
     protected String phone = null;
     protected String userType = null;
 
+    public User(String userName, String password, double payEase, String phone, String userType) {
+        this.userName = userName;
+        this.password = password;
+        this.payEase = payEase;
+        this.phone = phone;
+        this.userType = userType;
+    }
     public String getUserName() {
         return userName;
     }

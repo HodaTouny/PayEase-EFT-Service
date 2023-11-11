@@ -1,8 +1,10 @@
 package database;
 
+import user.User;
+
 import java.util.List;
 
 public interface IDatabase {
-    void saveData(List<Object> data);
-    List<Object> loadData();
+    public void saveData(User user);
+    public User loadData(String userName) ;
 }
