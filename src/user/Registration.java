@@ -1,7 +1,8 @@
 package user;
+import database.IDatabase;
 
 public abstract class Registration {
-    //IDatabase database = null;
+    IDatabase database = null;
 
     public boolean OTPVerification() {
         return true;
