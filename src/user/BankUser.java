@@ -36,8 +36,17 @@ public class BankUser extends User{
 
     }
 
-
-
+    @Override
+    public void setUser(String[] Data) {
+        if (Data.length == 6) {
+            setUserName(Data[0]);
+            setPassword(Data[1]);
+            setPayEase(Double.parseDouble(Data[2]));
+            setPhone(Data[3]);
+            setUserType(Data[4]);
+            setCardNumber(Data[5]);
+        }
+    }
 
 
 }
