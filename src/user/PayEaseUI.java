@@ -9,7 +9,6 @@ public class PayEaseUI {
 
     public PayEaseUI() {
        // this.registrationUI = new RegistrationUI();
-        this.loginUI = new LoginUI();
         this.scanner = new Scanner(System.in);
     }
 
