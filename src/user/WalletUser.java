@@ -16,6 +16,12 @@ public class WalletUser extends User{
     public void setWalletName(String wallet) {
       walletName = wallet;
     }
+
+    @Override
+    public String getUserType() {
+        return "wallet";
+    }
+
     public String getData() {
         return getUserName() + "," +
                 getPassword() + "," +
@@ -25,7 +31,9 @@ public class WalletUser extends User{
                 walletName;
 
     }
-
+    public void setUserType(){
+        userType = "wallet";
+    }
     @Override
     public void setUser(String[] Data) {
         if (Data.length == 6) {
@@ -33,7 +41,7 @@ public class WalletUser extends User{
             setPassword(Data[1]);
             setPayEase(Double.parseDouble(Data[2]));
             setPhone(Data[3]);
-            setUserType(Data[4]);
+            setUserType();
             setWalletName(Data[5]);
         }
     }

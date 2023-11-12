@@ -1,25 +1,31 @@
 package fakeAPI;
 
-import java.util.Objects;
 import java.util.Random;
 
 public class OTP {
     private String otp;
-    public OTP(){this.otp=null;}
-    public String getOtp(){
+
+    public OTP() {
+        otp =generateOTP();
+    }
+
+    public String getOtp() {
         return otp;
     }
 
     public String generateOTP() {
+        String numbers = "0123456789";
+        StringBuilder otpBuilder = new StringBuilder();
         Random random = new Random();
-        int randomOTP = random.nextInt(10000);
-        this.otp = String.format("%04d", randomOTP);
-        return this.otp;
+        for (int i = 0; i < 6; i++) {
+            otpBuilder.append(numbers.charAt(random.nextInt(numbers.length())));
+        }
+        return otpBuilder.toString();
     }
 
-    public boolean verifyOTP(String OTP) {
-        return Objects.equals(OTP, otp);
+    public boolean verifyOTP(String userInput) {
+        System.out.println(otp);
+        return userInput.equals(otp);
     }
 
 }
-

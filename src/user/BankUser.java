@@ -26,6 +26,11 @@ public class BankUser extends User{
     }
 
     @Override
+    public String getUserType() {
+        return "bank";
+    }
+
+    @Override
     public String getData() {
         return getUserName() + "," +
                 getPassword() + "," +
@@ -35,7 +40,9 @@ public class BankUser extends User{
                 creditCard;
 
     }
-
+    public void setUserType(){
+        userType = "bank";
+    }
     @Override
     public void setUser(String[] Data) {
         if (Data.length == 6) {
@@ -43,7 +50,7 @@ public class BankUser extends User{
             setPassword(Data[1]);
             setPayEase(Double.parseDouble(Data[2]));
             setPhone(Data[3]);
-            setUserType(Data[4]);
+            setUserType();
             setCardNumber(Data[5]);
         }
     }

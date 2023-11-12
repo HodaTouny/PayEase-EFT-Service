@@ -46,13 +46,9 @@ public abstract class User {
         this.phone = phone;
     }
 
-    public String getUserType() {
-        return userType;
-    }
+    public abstract String getUserType();
 
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
+    public abstract void setUserType();
     public abstract String getData();
     public abstract void setUser(String[] Data);
 

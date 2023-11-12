@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 public abstract class Registration {
     IDatabase database = new FileDatabase();
 
-    public boolean OTPVerification(String OTP) {
-        OTP otp = new OTP();
+    public boolean OTPVerification(String OTP,OTP otp) {
         return otp.verifyOTP(OTP);
 
     }
