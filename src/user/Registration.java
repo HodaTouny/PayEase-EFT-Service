@@ -21,7 +21,7 @@ public abstract class Registration {
         return user == null;
     }
 
-    public static boolean verifyPass(String password) {
+    public  boolean verifyPass(String password) {
         String regex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&*]).{10,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher match = pattern.matcher(password);
@@ -32,5 +32,6 @@ public abstract class Registration {
     public void saveUsers(User user) {
         database.saveData(user);
     }
+    public abstract void register();
 
 }

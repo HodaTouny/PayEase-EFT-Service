@@ -1,5 +1,5 @@
 package user;
 
 public interface RegisterFactory {
-    public Registration createRegistration();
+    Registration createRegistration(int num);
 }

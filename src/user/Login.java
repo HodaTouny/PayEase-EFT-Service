@@ -3,7 +3,7 @@ package user;
 import database.FileDatabase;
 import database.IDatabase;
 
-public class Login {
+public abstract class Login {
     IDatabase fileDatabase = new FileDatabase();
     private User user;
 
