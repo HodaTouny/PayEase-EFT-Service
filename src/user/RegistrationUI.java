@@ -58,7 +58,7 @@ public void registrationTemplate() {
                 }
             }
 
-            newUser.setUser(new String[]{username, password,"0.0",phoneNumber,newUser.getUserType(),"Bank1"});
+            newUser.setUser(new String[]{username, password,"0.0",phoneNumber,newUser.getUserType(),Value});
             database.saveData(newUser);
         }
         else{
