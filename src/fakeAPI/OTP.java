@@ -9,6 +9,7 @@ public class OTP {
     public String getOtp(){
         return otp;
     }
+
     public String generateOTP() {
         Random random = new Random();
         int randomOTP = random.nextInt(10000);
@@ -16,7 +17,9 @@ public class OTP {
         return this.otp;
     }
 
-    public boolean verifyOTP(String otp) {
-        return Objects.equals(this.otp, otp);
+    public boolean verifyOTP(String OTP) {
+        return Objects.equals(OTP, otp);
     }
+
 }
+
