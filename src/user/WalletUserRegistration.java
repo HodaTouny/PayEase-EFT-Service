@@ -1,11 +1,18 @@
 package user;
 
-public class WalletUserRegistration extends Registration{
-    public boolean APIVerification() {
-        return true;
-    }
 
-    public void saveUsers(User user) {
-        System.out.println("User saved: " + user.getUserName());
-    }
+import API.Wallets;
+
+public class WalletUserRegistration extends Registration{
+        public boolean APIVerification(String walletName, String phoneNumber) {
+            for (Wallets wallet : Wallets.values()) {
+                if (wallet.APIVerification(walletName, phoneNumber)) {
+                    return true;
+                }
+            }
+            return false;
+        }
 }
+
+
+
