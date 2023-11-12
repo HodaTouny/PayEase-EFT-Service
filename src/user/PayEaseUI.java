@@ -3,39 +3,57 @@ package user;
 import java.util.Scanner;
 
 public class PayEaseUI {
-    private RegistrationUI registrationUI;
-    private LoginUI loginUI;
+
     private Scanner scanner;
 
     public PayEaseUI() {
-       // this.registrationUI = new RegistrationUI();
         this.scanner = new Scanner(System.in);
     }
 
     public void payEaseMenu() {
         System.out.println("Welcome to PayEase!");
-        int choice;
-            System.out.println("1) Register");
-            System.out.println("2) Login");
-            System.out.println("3) Exit");
-            System.out.print("Enter choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
-                switch (choice) {
-                    case 1:
-                       // registrationUI.registrationMenu();
+        System.out.println("1. Login");
+        System.out.println("2. Register");
+        System.out.print("Choose an option (1 or 2): ");
 
-                        break;
-                    case 2:
-                        loginUI.loginMenu();
-                        break;
-                    case 3:
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println("Invalid choice. Please try again.");
-                }
-            }
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choice) {
+            case 1:
+                handleLogin();
+                break;
+            case 2:
+                handleRegistration();
+                break;
+            default:
+                System.out.println("Invalid choice. Please choose 1 or 2.");
+        }
+    }
+
+    private void handleLogin()
+    {
+        LoginFactory factory = new ConcreteLoginFactory();
+        LoginUI loginUI = factory.createLogin(1);
+        boolean loginResult = loginUI.loginMenu();
+        if (loginResult) {
+            System.out.println("Login successful!");
+
+        } else {
+            System.out.println("Login failed. Invalid username or password.");
+        }
+    }
+
+    private void handleRegistration() {
+        System.out.println("1. Wallet Registration");
+        System.out.println("2. Bank Registration");
+        System.out.print("Choose registration type (1 or 2): ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        RegistartionUiFactory factory = new ConcreteRegistartionUIFactory();
+        RegistrationUI registrationUI = factory.createReg(choice);
+        registrationUI.registrationTemplate(choice);
 
     }
+}
 

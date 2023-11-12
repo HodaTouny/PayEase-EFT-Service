@@ -1,10 +1,11 @@
-import user.LoginUI;
-import user.RegistrationUI;
-import user.bankRegistrationUI;
-import user.loginConcrete;
+import user.*;
 
 
 public class Main {
+    public static void main(String[] args) {
+        PayEaseUI payEaseUI = new PayEaseUI();
+        payEaseUI.payEaseMenu();
+    }
 
 }
 
