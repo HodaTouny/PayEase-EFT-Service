@@ -10,7 +10,7 @@ public class Wallet1 implements WalletAPI {
     public boolean verifyUser(String phone){
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split("|");
                 if (parts.length > 0 && parts[0].equals(phone)) {
 
                     return true;
@@ -27,7 +27,7 @@ public class Wallet1 implements WalletAPI {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             StringBuilder fileContent = new StringBuilder();
             while ((line = br.readLine()) != null) {
-                String[] data = line.split("\\|");
+                String[] data = line.split("|");
                 if (data[0].equals(phoneNumber)) {
                     double balance = Double.parseDouble(data[1]);
                     if (balance >= amount) {
