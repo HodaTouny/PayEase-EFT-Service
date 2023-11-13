@@ -1,6 +1,11 @@
-package user;
+package UI;
 
-public class ConcreteRegistartionUIFactory implements RegistartionUiFactory{
+import UI.RegistartionUiFactory;
+import UI.RegistrationUI;
+import UI.bankRegistrationUI;
+import UI.walletRegitstrationUI;
+
+public class ConcreteRegistartionUIFactory implements RegistartionUiFactory {
     @Override
     public RegistrationUI createReg(int choice) {
         if(choice == 1){

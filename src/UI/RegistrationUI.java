@@ -1,8 +1,9 @@
-package user;
+package UI;
 
 import database.FileDatabase;
 import database.IDatabase;
 import fakeAPI.OTP;
+import user.*;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -11,22 +12,16 @@ import java.util.Vector;
 public abstract class RegistrationUI {
     Registration registration;
 
-public void registrationTemplate() {
+public void registrationTemplate(int choice) {
     IDatabase database = new FileDatabase();
     Scanner scanner = new Scanner(System.in);
-    System.out.println("1. Wallet Registration");
-    System.out.println("2. Bank Registration");
-    System.out.print("Choose registration type (1 or 2): ");
-    int choice = scanner.nextInt();
-    scanner.nextLine();
 
     RegisterFactory factory = new RegisterFactoryConcrete();
     Registration register = factory.createRegistration(choice);
 
     UserFactory factoryUser = new UserFactoryConcrete();
     User newUser = factoryUser.createUser(choice);
-    ;
-//    UserData[4] = newUser.getUserType();
+
 
     System.out.println("Enter your phone number: ");
     String phoneNumber = scanner.nextLine();

@@ -1,11 +1,12 @@
 package user;
 
+import UI.LoginUI;
 import database.FileDatabase;
 import database.IDatabase;
 
 import java.util.Objects;
 
-public class loginConcrete extends LoginUI{
+public class loginConcrete extends LoginUI {
     IDatabase databse = new FileDatabase();
     @Override
     public User checkAccount(String userName, String password) {

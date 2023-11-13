@@ -1,4 +1,4 @@
-import user.*;
+import UI.PayEaseUI;
 
 
 public class Main {

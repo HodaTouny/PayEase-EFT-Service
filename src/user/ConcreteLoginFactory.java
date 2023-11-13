@@ -1,5 +1,7 @@
 package user;
 
+import UI.LoginUI;
+
 public class ConcreteLoginFactory implements LoginFactory{
 
     @Override

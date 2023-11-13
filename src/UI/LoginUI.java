@@ -1,4 +1,6 @@
-package user;
+package UI;
+import user.User;
+
 import java.util.Scanner;
 public abstract class LoginUI {
     public boolean loginMenu(){

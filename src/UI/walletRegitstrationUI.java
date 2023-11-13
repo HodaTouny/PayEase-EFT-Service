@@ -1,4 +1,7 @@
-package user;
+package UI;
+
+import UI.RegistrationUI;
+import user.Registration;
 
 import java.util.Scanner;
 

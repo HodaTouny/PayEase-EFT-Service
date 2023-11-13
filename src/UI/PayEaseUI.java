@@ -1,4 +1,6 @@
-package user;
+package UI;
+
+import user.*;
 
 import java.util.Scanner;
 

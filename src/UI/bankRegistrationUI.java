@@ -1,9 +1,11 @@
-package user;
+package UI;
+import user.Registration;
+
 import java.util.Scanner;
 
-public class bankRegistrationUI extends RegistrationUI{
+public class bankRegistrationUI extends RegistrationUI {
     @Override
-    public String enterData(String phoneNum,Registration regist) {
+    public String enterData(String phoneNum, Registration regist) {
         System.out.println("Enter your credit number: ");
         Scanner scanner = new Scanner(System.in);
         String creditnumber = scanner.nextLine();
