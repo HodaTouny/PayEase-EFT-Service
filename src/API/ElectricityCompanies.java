@@ -5,7 +5,7 @@ import fakeAPI.CompanyAPI;
 import fakeAPI.Electricity1;
 
 public enum ElectricityCompanies implements IBill {
-    Electricity1("Electricity1") {
+    Electricity1("1") {
         @Override
         public CompanyAPI createElectricityCompany() {
             return new Electricity1();
@@ -15,17 +15,12 @@ public enum ElectricityCompanies implements IBill {
         CompanyAPI companyAPI = createElectricityCompany();
         return companyAPI.CreateBilll(crn);
     }
-
-
-    private final String ElectricityCompanyName;
-
-    ElectricityCompanies(String ElectricityCompanyName) {
-        this.ElectricityCompanyName = ElectricityCompanyName;
+    String num;
+    ElectricityCompanies(String num) {
+        this.num = num;
     }
 
-    public String getElectricityCompanyName() {
-        return ElectricityCompanyName;
-    }
+
 
     public abstract CompanyAPI createElectricityCompany();
 

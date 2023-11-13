@@ -1,6 +1,7 @@
 package bills;
 
 public interface IBillFactory {
-    IBill getBill();
+
+    String getBillDetails(String num,String crn);
 
 }

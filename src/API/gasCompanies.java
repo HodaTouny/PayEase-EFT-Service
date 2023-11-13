@@ -2,12 +2,11 @@ package API;
 
 import bills.IBill;
 import fakeAPI.CompanyAPI;
-import fakeAPI.Wallet1;
-import fakeAPI.WalletAPI;
+
 import fakeAPI.Water1;
 
 public enum gasCompanies implements IBill {
-    Gas1("Gas1") {
+    Gas1("1") {
         @Override
         public CompanyAPI createGasCompany() {
             return new Water1();
@@ -18,15 +17,11 @@ public enum gasCompanies implements IBill {
         return companyAPI.CreateBilll(crn);
     }
 
-    private final String gasCompanyName;
-
-    gasCompanies(String gasCompanyName) {
-        this.gasCompanyName = gasCompanyName;
+    String num;
+    gasCompanies(String num) {
+        this.num = num;
     }
 
-    public String getGasCompanyName() {
-        return gasCompanyName;
-    }
 
     public abstract CompanyAPI createGasCompany();
 
