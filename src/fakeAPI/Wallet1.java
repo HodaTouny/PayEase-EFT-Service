@@ -10,8 +10,9 @@ public class Wallet1 implements WalletAPI {
     public boolean verifyUser(String walletName,String phone){
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split("\\|");
+                String[] parts = line.split("|");
                 if (parts.length > 0 && parts[0].equals(phone)) {
+
                     return true;
                 }
             }

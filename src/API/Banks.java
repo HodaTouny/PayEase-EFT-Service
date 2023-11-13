@@ -2,6 +2,7 @@ package API;
 
 import fakeAPI.Bank1;
 import fakeAPI.BankAPI;
+import fakeAPI.WalletAPI;
 
 public enum Banks {
     BANK1("10000", "19999") {
@@ -9,6 +10,7 @@ public enum Banks {
         public BankAPI createBank() {
             return new Bank1();
         }
+
     };
     private final String startRange;
     private final String endRange;
@@ -27,12 +29,21 @@ public enum Banks {
 
     public abstract BankAPI createBank();
 
+
     public boolean APIVerification(String creditCardNumber,String phone) {
         if (isInRange(creditCardNumber.substring(0, 5))) {
             BankAPI bankAPI = createBank();
             return bankAPI.verifyUser(creditCardNumber,phone);
         }
         return false;
+    }
+    public void withdraw(String creditCardNumber, double amount) {
+            BankAPI bankAPI = createBank();
+            if (bankAPI.withdraw(creditCardNumber, amount)) {
+                System.out.println("Withdrawal successful");
+            } else {
+                System.out.println("Withdrawal failed");
+            }
     }
 }
 

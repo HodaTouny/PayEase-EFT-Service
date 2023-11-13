@@ -1,5 +1,6 @@
 package API;
 
+import fakeAPI.BankAPI;
 import fakeAPI.Wallet1;
 import fakeAPI.WalletAPI;
 
@@ -26,5 +27,13 @@ public enum Wallets {
     public boolean APIVerification(String walletName, String phoneNumber) {
         WalletAPI walletAPI = createWallet();
         return walletAPI.verifyUser(walletName, phoneNumber);
+    }
+    public void withdraw(String phonenumber, double amount) {
+        WalletAPI walletAPI = createWallet();
+        if (walletAPI.withdraw(phonenumber, amount)) {
+            System.out.println("Withdrawal successful");
+        } else {
+            System.out.println("Withdrawal failed");
+        }
     }
 }
