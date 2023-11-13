@@ -27,7 +27,7 @@ public class Bank1 implements BankAPI {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             StringBuilder fileContent = new StringBuilder();
             while ((line = br.readLine()) != null) {
-                String[] data = line.split("|");
+                String[] data = line.split("\\|");
                 if (data[1].equals(cardNumber)) {
                     double balance = Double.parseDouble(data[2]);
                     if (balance >= amount) {

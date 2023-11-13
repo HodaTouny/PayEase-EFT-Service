@@ -37,13 +37,6 @@ public enum Banks {
         }
         return false;
     }
-    public void withdraw(String creditCardNumber, double amount) {
-            BankAPI bankAPI = createBank();
-            if (bankAPI.withdraw(creditCardNumber, amount)) {
-                System.out.println("Withdrawal successful");
-            } else {
-                System.out.println("Withdrawal failed");
-            }
-    }
+
 }
 
