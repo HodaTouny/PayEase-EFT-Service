@@ -1,4 +1,7 @@
-package UI;
+package user;
+
+import UI.LoginUI;
+import UI.loginConcrete;
 
 public class ConcreteLoginFactory implements LoginFactory {
 
