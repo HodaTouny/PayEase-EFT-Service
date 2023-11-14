@@ -10,59 +10,67 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public abstract class RegistrationUI {
-    Registration registration;
-
-public void registrationTemplate(int choice) {
-    IDatabase database = new Database();
+    Registration register;
     Scanner scanner = new Scanner(System.in);
 
+public boolean registrationTemplate(int choice,IDatabase database) {
     RegisterFactory factory = new RegisterFactoryConcrete();
-    Registration register = factory.createRegistration(choice);
-
+    register = factory.createRegistration(choice);
     UserFactory factoryUser = new UserFactoryConcrete();
     User newUser = factoryUser.createUser(choice);
 
-
-    System.out.println("Enter your phone number: ");
+    System.out.println("Please Enter the Phone Number linked to your Account:");
     String phoneNumber = scanner.nextLine();
+
     String Value =enterData(phoneNumber, register);
-    if (Value != null) {
-        OTP otp = new OTP();
-        String realOtp = otp.getOtp();
-        System.out.println(realOtp);
-        System.out.println("Enter OTP: ");
-        String otpInput = scanner.nextLine();
-        boolean otpVerify = register.OTPVerification(otpInput,otp);
-
-        if (otpVerify) {
-            String username;
-            while (true) {
-                System.out.println("please enter unique username");
-                username = scanner.nextLine();
-                if (register.verifyUsername(username)) {
-                    break;
-                }
-            }
-
-            String password;
-            while (true) {
-                System.out.println("please enter complex password");
-                password = scanner.nextLine();
-                if (register.verifyPass(password)) {
-                    break;
-                }
-            }
-
-            newUser.setUser(new String[]{username, password,"0.0",phoneNumber,newUser.getUserType(),Value});
-            database.saveData(newUser);
+    if(Value != null) {
+        if (otpVerify()) {
+            String[] usernamePassword = EnterLoginData();
+            newUser.setUser(new String[]{usernamePassword[0], usernamePassword[1], "0.0", phoneNumber, newUser.getUserType(), Value});
         }
-        else{
-            System.out.println("wrong otp!!!");
+        if (!database.saveData(newUser)) {
+            System.err.println("Registration Error: There may be a failure in our database. Please re-register after a few seconds.");
+        } else {
+            System.out.println("Registration successfully completed. We wish you a positive and seamless experience.");
+            return true;
         }
-    }else{
-        System.err.println("InValid Informations");
+
     }
-}
-    public abstract String enterData(String phoneNum,Registration regist);
+    return false;
 
 }
+
+    public abstract String enterData(String phoneNum,Registration regist);
+    private boolean otpVerify() {
+        for (int i=0;i<3;i++) {
+            OTP otp = new OTP();
+            String realOtp = otp.getOtp();
+            System.out.println(realOtp);
+            System.out.println("Enter OTP: ");
+            String otpInput = scanner.nextLine();
+            boolean verify = register.OTPVerification(otpInput, otp);
+            if (verify) {
+                return true;
+            }
+            System.out.println("Invalid OTP,Please try again.");
+        }
+        System.out.println("Maximum chances reached,OTP verification failed.");
+        return false;
+    }
+
+    private String[] EnterLoginData() {
+        String username, password;
+        do {
+            System.out.println("Please enter a unique username:");
+            username = scanner.nextLine();
+        } while (!register.verifyUsername(username));
+        do {
+            System.out.println("Please enter a complex password:");
+            password = scanner.nextLine();
+        } while (!register.verifyPass(password));
+
+        return new String[]{username, password};
+    }
+
+}
+

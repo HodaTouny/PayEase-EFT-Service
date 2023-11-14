@@ -1,8 +1,10 @@
-package user;
+package UI;
 
 import UI.LoginUI;
+import UI.loginConcrete;
+import user.LoginFactory;
 
-public class ConcreteLoginFactory implements LoginFactory{
+public class ConcreteLoginFactory implements LoginFactory {
 
     @Override
     public LoginUI createLogin(int choice) {

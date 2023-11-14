@@ -1,12 +1,9 @@
 package UI;
-
-import UI.RegistrationUI;
 import user.Registration;
 
 import java.util.Scanner;
 
 public class walletRegitstrationUI  extends RegistrationUI {
-
     @Override
     public String enterData(String phoneNum, Registration regist) {
         System.out.println("Enter your wallet name: ");
@@ -15,6 +12,7 @@ public class walletRegitstrationUI  extends RegistrationUI {
         if(regist.APIVerification(walletName, phoneNum)){
             return walletName;
         }
+        System.out.println("The Wallet Refuse your Data,Please check it and try again Later");
         return null;
     }
 }

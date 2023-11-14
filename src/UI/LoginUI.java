@@ -10,7 +10,6 @@ public abstract class LoginUI {
         String username = scanner.nextLine();
         System.out.println("password:");
         String password = scanner.nextLine();
-
         return checkAccount(username,password);
     }
     public abstract User checkAccount(String userName,String password);

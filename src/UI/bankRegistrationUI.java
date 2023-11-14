@@ -1,6 +1,5 @@
 package UI;
 import user.Registration;
-
 import java.util.Scanner;
 
 public class bankRegistrationUI extends RegistrationUI {
@@ -12,6 +11,7 @@ public class bankRegistrationUI extends RegistrationUI {
         if(regist.APIVerification(creditnumber,phoneNum)){
             return creditnumber;
         }
+        System.out.println("The bank Refuse your Data,Please check it and try again Later");
        return null;
 
     }

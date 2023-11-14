@@ -10,7 +10,7 @@ public class Water2 implements CompanyAPI {
     public String CreateBilll(String crn) {
         boolean found = false;
         StringBuilder result = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/fakeAPI/WaterCompany1.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/fakeAPI/WaterCompany2.txt"))) {
             String line;
 
             while ((line = br.readLine()) != null) {
@@ -21,7 +21,7 @@ public class Water2 implements CompanyAPI {
                 }
             }
             if (!found) {
-                return "Customer with ID " + crn + " not found. Please check the CRN and try again.";
+                return null;
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());

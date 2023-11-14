@@ -1,9 +1,1 @@
-<<<<<<< Updated upstream
-mayahesham,mayaHesh2@,0.0,01018360646,bank,8456782
-hoda,password123,3000.0,123456789,bank,100038888
-shahd,password123,1100.0,123456789,wallet,shahd's Wallet
-=======
-shahd,password123,1000.0,123456789,wallet,shahd's Wallet
-hoda,password123,1000.0,123456789,bank,100038888
-mayahesham,mayaHesh2@,0.0,01018360646,bank,100038888
->>>>>>> Stashed changes
+HodaTouny,HodaSamir22#,0.0,01060584671,wallet,Wallet1
