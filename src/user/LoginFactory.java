@@ -1,4 +1,4 @@
-package UI;
+package user;
 
 import UI.LoginUI;
 
