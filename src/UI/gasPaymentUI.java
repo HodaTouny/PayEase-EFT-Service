@@ -1,20 +1,19 @@
 package UI;
 
-import bills.BillPaymentManager;
-import user.User;
-
-import java.util.Scanner;
+import API.gasCompanies;
 
 public class gasPaymentUI extends BillPaymentUI {
-    public gasPaymentUI(BillPaymentManager paymentManager, User user) {
-        super(paymentManager, user);
-    }
+
     @Override
-    public String chooseCompany() {
-        System.out.println("1-gas1");
-        System.out.println("2-gas2");
-        Scanner scanner = new Scanner(System.in);
-        String choice2 = scanner.nextLine();
-        return choice2;
+    public String specificMenu(String crn) {
+        System.out.println("1-Gas1");
+
+        String CompanyName = scanner.nextLine();
+        for (gasCompanies company : gasCompanies.values()) {
+            if (company.num.equals(CompanyName)) {
+                return company.createBill(crn);
+            }
+        }
+        return null;
     }
 }

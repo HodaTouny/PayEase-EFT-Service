@@ -19,13 +19,12 @@ public enum waterCompanies implements IBill {
         }
     };
 
-    String num;
+    public String num;
     waterCompanies(String num) {
         this.num = num;
     }
 
-    waterCompanies() {
-    }
+
 
     public String createBill(String crn) {
         CompanyAPI companyAPI = createCompany();

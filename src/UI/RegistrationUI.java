@@ -1,6 +1,6 @@
 package UI;
 
-import database.FileDatabase;
+import database.Database;
 import database.IDatabase;
 import fakeAPI.OTP;
 import user.*;
@@ -13,7 +13,7 @@ public abstract class RegistrationUI {
     Registration registration;
 
 public void registrationTemplate(int choice) {
-    IDatabase database = new FileDatabase();
+    IDatabase database = new Database();
     Scanner scanner = new Scanner(System.in);
 
     RegisterFactory factory = new RegisterFactoryConcrete();

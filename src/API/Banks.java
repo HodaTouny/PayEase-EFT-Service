@@ -38,5 +38,13 @@ public enum Banks {
         return false;
     }
 
+    public boolean withdraw(String creditCardNumber, double amount) {
+        if (isInRange(creditCardNumber.substring(0, 5))) {
+            BankAPI bankAPI = createBank();
+            return bankAPI.withdraw(creditCardNumber, amount);
+        }
+        return false;
+    }
+
 }
 

@@ -15,7 +15,7 @@ public enum ElectricityCompanies implements IBill {
         CompanyAPI companyAPI = createElectricityCompany();
         return companyAPI.CreateBilll(crn);
     }
-    String num;
+    public String num;
     ElectricityCompanies(String num) {
         this.num = num;
     }

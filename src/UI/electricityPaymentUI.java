@@ -1,25 +1,20 @@
 package UI;
 
-import bills.BillPaymentManager;
-import bills.IBillFactory;
-import bills.waterFactory;
-import user.User;
-
-import java.util.Scanner;
+import API.ElectricityCompanies;
 
 public class electricityPaymentUI extends BillPaymentUI{
-    public electricityPaymentUI(BillPaymentManager paymentManager, User user) {
-        super(paymentManager, user);
-    }
+
 
     @Override
-    public String chooseCompany() {
-        System.out.println("1-Electricity1");
-        System.out.println("2-Electricity2");
-        IBillFactory billFactory = new waterFactory();
-        Scanner scanner = new Scanner(System.in);
-        String choice2 = scanner.nextLine();
-        return choice2;
-    }
+    public String specificMenu(String crn) {
+        System.out.println("1- Electricity");
 
+        String CompanyName = scanner.nextLine();
+        for (ElectricityCompanies company : ElectricityCompanies.values()) {
+            if (company.num.equals(CompanyName)) {
+                return company.createBill(crn);
+            }
+        }
+        return null;
+    }
 }

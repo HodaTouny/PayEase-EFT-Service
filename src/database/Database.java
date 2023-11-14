@@ -3,7 +3,7 @@ import user.*;
 import java.io.*;
 
 
-public class FileDatabase implements IDatabase {
+public class Database implements IDatabase {
     private static final String FILE_PATH = "user.txt";
 
     @Override

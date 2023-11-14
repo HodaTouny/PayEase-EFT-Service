@@ -29,4 +29,9 @@ public enum Wallets {
         return walletAPI.verifyUser(walletName, phoneNumber);
     }
 
+    public boolean withdraw(String phoneNumber, double amount) {
+        WalletAPI walletAPI = createWallet();
+        return walletAPI.withdraw(phoneNumber, amount);
+    }
+
 }

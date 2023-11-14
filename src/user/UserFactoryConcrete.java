@@ -13,7 +13,7 @@ public class UserFactoryConcrete implements UserFactory{
     }
 
     @Override
-    public User createUser(String UserType) {
+    public User createUser(String UserType){
         if("wallet".equals(UserType)){
             return new WalletUser();
         }else if("bank".equals(UserType)){

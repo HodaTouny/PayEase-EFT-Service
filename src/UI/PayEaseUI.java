@@ -5,6 +5,7 @@ import user.*;
 import java.util.Scanner;
 
 public class PayEaseUI {
+    String [] LoggedUser;
 
     private Scanner scanner;
 
@@ -18,32 +19,37 @@ public class PayEaseUI {
         System.out.println("2. Register");
         System.out.print("Choose an option (1 or 2): ");
 
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+//        int choice = scanner.nextInt();
+//        scanner.nextLine();
+//
+//        switch (choice) {
+//            case 1:
+//                handleLogin();
+//                break;
+//            case 2:
+//                handleRegistration();
+//                break;
+//            default:
+//                System.out.println("Invalid choice. Please choose 1 or 2.");
+//        }
+        handleLogin();
+        handleBillPayment();
 
-        switch (choice) {
-            case 1:
-                handleLogin();
-                break;
-            case 2:
-                handleRegistration();
-                break;
-            default:
-                System.out.println("Invalid choice. Please choose 1 or 2.");
-        }
     }
 
     private void handleLogin()
     {
         LoginFactory factory = new ConcreteLoginFactory();
         LoginUI loginUI = factory.createLogin(1);
-        boolean loginResult = loginUI.loginMenu();
-        if (loginResult) {
+        User user = loginUI.loginMenu();
+        if (user != null) {
+            LoggedUser = user.getData().split(",");
             System.out.println("Login successful!");
 
         } else {
             System.out.println("Login failed. Invalid username or password.");
         }
+
     }
 
     private void handleRegistration() {
@@ -56,6 +62,17 @@ public class PayEaseUI {
         RegistrationUI registrationUI = factory.createReg(choice);
         registrationUI.registrationTemplate(choice);
 
+    }
+
+    private void handleBillPayment(){
+        System.out.println("Select bill type:");
+        System.out.println("1. Electricity");
+        System.out.println("2. Gas");
+        System.out.println("3. Water");
+        String billType = scanner.nextLine();
+        BillsFactoryUI factory = new BillsFactoryUiConcrete();
+        BillPaymentUI bill = factory.create(billType);
+        bill.BillTemplate(LoggedUser,bill);
     }
 }
 

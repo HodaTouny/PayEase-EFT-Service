@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import API.waterCompanies;
 import database.FileDatabase;
 import database.IDatabase;
@@ -5,12 +6,17 @@ import fakeAPI.Bank1;
 import fakeAPI.BankAPI;
 import transfer.*;
 import user.*;
+=======
 
+import UI.BillPaymentUI;
+>>>>>>> Stashed changes
 
-import bills.*;
-import user.User;
+import UI.PayEaseUI;
+import UI.electricityPaymentUI;
+
 
 public class Main {
+<<<<<<< Updated upstream
 
     public static void main(String[] args) {
 ////        // TEST transfer
@@ -27,8 +33,12 @@ public class Main {
         optionsUI.optionsMenu(walletuser);
 
 
+=======
+  public static void main(String[] args) {
+    PayEaseUI pay = new PayEaseUI();
+    pay.payEaseMenu();
+>>>>>>> Stashed changes
   }
 }
-
 
 

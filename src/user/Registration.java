@@ -1,5 +1,5 @@
 package user;
-import database.FileDatabase;
+import database.Database;
 import database.IDatabase;
 import fakeAPI.OTP;
 
@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 
 public abstract class Registration {
-    IDatabase database = new FileDatabase();
+    IDatabase database = new Database();
 
     public boolean OTPVerification(String OTP,OTP otp) {
         return otp.verifyOTP(OTP);

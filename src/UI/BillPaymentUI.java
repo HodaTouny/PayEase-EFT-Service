@@ -1,48 +1,42 @@
 package UI;
 
-import bills.BillPaymentManager;
-import bills.WithdrawalStrategy;
-import bills.bankWithdrawalStrategy;
+import API.Banks;
+import API.Wallets;
 import user.User;
 
+import java.util.Objects;
 import java.util.Scanner;
 
-public  abstract class BillPaymentUI{
-    private final BillPaymentManager paymentManager;
-    private final User user;
+public abstract class BillPaymentUI {
+    Scanner scanner = new Scanner(System.in);
 
+    public void BillTemplate(String[] user,BillPaymentUI bill) {
 
-    public BillPaymentUI(BillPaymentManager paymentManager, User user) {
-        this.paymentManager = paymentManager;
-        this.user = user;
-    }
-
-    public void showmenu(String userData[]) {
-        System.out.println("Which bill do you want to pay?");
-        System.out.println("1-Water Bill");
-        System.out.println("2-Electricity Bill");
-        System.out.println("3-Gas Bill");
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        String mychoice = chooseCompany();
-        System.out.println("Enter CRN:");
+        System.out.println("Enter CRN (Customer Reference Number):");
         String crn = scanner.nextLine();
-        paymentManager.generateBill(crn,mychoice);
-        System.out.println("Do you want to pay? (yes/no)");
-        String payOption = scanner.next();
-        if ("yes".equals(payOption)) {
-            double paymentAmount = paymentManager.getBillAmount();
-            boolean paymentResult = paymentManager.performPayment(user, paymentAmount);
-            if (paymentResult) {
-                System.out.println("Payment successful!");
-            } else {
-                System.out.println("Payment failed. Insufficient funds.");
-            }
-        } else {
-            System.out.println("Payment canceled.");
-        }
 
+        String billDetails = bill.specificMenu(crn);
+
+        System.out.println("Bill Details : " + billDetails);
+
+        if(billDetails != null) {
+            String[] billArr = billDetails.split(",");
+            if ("wallet".equals(user[4])) {
+                for (Wallets wallet : Wallets.values()) {
+                    if (wallet.withdraw(user[3], Double.parseDouble(billArr[2]))) {
+                        System.out.println("Withdrawn Done");
+                    }
+                }
+            } else if ("bank".equals(user[4])) {
+                for (Banks bank : Banks.values()) {
+                    if (bank.withdraw(user[5], Double.parseDouble(billArr[3]))) {
+                        System.out.println("Withdraw DONE");
+                    }
+                }
+            }
+        }else{
+            System.out.println("No Bill To Pay");
+        }
     }
-    public abstract String chooseCompany();
+    public abstract String specificMenu(String crn);
 }

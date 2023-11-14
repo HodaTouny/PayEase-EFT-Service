@@ -12,7 +12,6 @@ public class Water1 implements CompanyAPI {
         StringBuilder result = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader("src/fakeAPI/WaterCompany1.txt"))) {
             String line;
-
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length > 0 && parts[0].equals(crn)) {
@@ -21,7 +20,7 @@ public class Water1 implements CompanyAPI {
                 }
             }
             if (!found) {
-                return "Customer with ID " + crn + " not found. Please check the CRN and try again.";
+                return null;
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());

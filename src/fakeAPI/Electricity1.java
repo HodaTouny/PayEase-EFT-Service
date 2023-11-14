@@ -19,7 +19,7 @@ public class Electricity1 implements CompanyAPI{
                 }
             }
             if (!found) {
-                return "Customer with ID " + crn + " not found. Please check the CRN and try again.";
+                return null;
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());

@@ -1,10 +1,10 @@
 package user;
 
-import database.FileDatabase;
+import database.Database;
 import database.IDatabase;
 
 public class Login {
-    IDatabase fileDatabase = new FileDatabase();
+    IDatabase fileDatabase = new Database();
     private User user;
 
     public boolean verifyCredentials(String userName,String password){
