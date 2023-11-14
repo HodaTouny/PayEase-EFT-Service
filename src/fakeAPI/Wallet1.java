@@ -34,6 +34,7 @@ public class Wallet1 implements WalletAPI {
                         balance -= amount;
                         data[1] = String.valueOf(balance);
                     } else {
+                        System.out.println("Insufficient balance");
                         return false;
                     }
                 }
@@ -48,4 +49,30 @@ public class Wallet1 implements WalletAPI {
         }
         return true;
     }
+
+    @Override
+    public boolean deposit(String phone, double amount) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder fileContent = new StringBuilder();
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split("\\|");
+                if (data[0].equals(phone)) {
+                    double balance = Double.parseDouble(data[1]);
+                    balance += amount;
+                    data[1] = String.valueOf(balance);
+                }
+                fileContent.append(String.join("|", data)).append("\n");
+            }
+            try (FileWriter writer = new FileWriter(filePath)) {
+                writer.write(fileContent.toString());
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+
 }

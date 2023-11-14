@@ -11,12 +11,6 @@ public class BankUser extends User{
         super(userName, password, payEase, phone, userType);
         this.creditCard = creditCard ;
     }
-    public String getCreditCard() {
-        return creditCard;
-    }
-    public void setCreditCard(String creditCardnum) {
-        creditCard = creditCardnum;
-    }
 
     public String getCardNumber() {
         return creditCard;

@@ -1,6 +1,9 @@
 import API.waterCompanies;
+import database.FileDatabase;
+import database.IDatabase;
 import fakeAPI.Bank1;
 import fakeAPI.BankAPI;
+import transfer.*;
 import user.*;
 
 
@@ -10,18 +13,20 @@ import user.User;
 public class Main {
 
     public static void main(String[] args) {
-        BankAPI bankAPI = new Bank1();
-        User user = new BankUser("hoda","password123",1000.0,"123456789","bank","100038888");
-        // Create a water bill payment manager
-        WithdrawalStrategy withdrawalStrategy = new bankWithdrawalStrategy(bankAPI); // Assuming you have a BankWithdrawalStrategy
-        IBillFactory billFactory = new waterFactory();
-        BillPaymentManager paymentManager = new BillPaymentManager(withdrawalStrategy, billFactory);
+////        // TEST transfer
+//        IDatabase database = new FileDatabase();
+//        Transfer transfer = new WalletTransfer();
+        User bankuser = new BankUser("hoda","password123",3000.0,"123456789","bank","100038888");
+        User walletuser= new WalletUser("hoda","password123",1000.0,"01014857378","wallet","WAllet1");
+//        String[] restData = {"Bank1","100038887"};
+//        String[] restData2 = {"wallet1","01013845789"};
+//        String[] restData3 = {"shahd"};
+//        transfer.transfer(100,restData2,walletuser);
+//        database.saveData(bankuser);
+        OptionsUI optionsUI = new OptionsUI();
+        optionsUI.optionsMenu(walletuser);
 
-        // Create a bill payment interface
-        BillPaymentInterface paymentInterface = new BillPaymentInterface(paymentManager, user);
 
-        // Display the bill payment interface
-        paymentInterface.showmenu();
   }
 }
 

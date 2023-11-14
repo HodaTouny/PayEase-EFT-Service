@@ -1,7 +1,8 @@
 package transfer;
-import user.User;
+import fakeAPI.*;
+import user.*;
 
-public interface Transfer {
-    public User user = null;
-    public void transfer(double amount);
+public  interface Transfer {
+    public  boolean transfer(double amount,String[] restData, User user);
+    public boolean checkAccount(String[] restData, User user) ;
 }

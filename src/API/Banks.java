@@ -33,7 +33,7 @@ public enum Banks {
     public boolean APIVerification(String creditCardNumber,String phone) {
         if (isInRange(creditCardNumber.substring(0, 5))) {
             BankAPI bankAPI = createBank();
-            return bankAPI.verifyUser(creditCardNumber,phone);
+            return bankAPI.verifyUser(creditCardNumber, phone);
         }
         return false;
     }
