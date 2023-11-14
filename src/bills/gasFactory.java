@@ -15,7 +15,6 @@ public class gasFactory implements IBillFactory {
     @Override
     public String getBillDetails(String num, String crn) {
         if (num.equals("1")) {
-
             return gasCompany.Gas1.createBill(crn);
         }
         return null;
