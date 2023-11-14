@@ -13,6 +13,7 @@ public enum Wallets {
     };
 
     private final String walletName;
+    public String num;
 
     Wallets(String walletName) {
         this.walletName = walletName;
