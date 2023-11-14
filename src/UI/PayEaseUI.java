@@ -82,10 +82,10 @@ public class PayEaseUI {
     }
 
     private void handleBillPayment(){
-        System.out.println("Select bill type:");
         System.out.println("1. Electricity");
         System.out.println("2. Gas");
         System.out.println("3. Water");
+        System.out.print("Please enter the number corresponding to the Bill You need To Pay: ");
         String billType = scanner.nextLine();
         BillsFactoryUI factory = new BillsFactoryUiConcrete();
         BillPaymentUI bill = factory.create(billType);

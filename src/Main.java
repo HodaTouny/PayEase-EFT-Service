@@ -5,6 +5,7 @@ public class Main {
 
         PayEaseUI payEaseUI = new PayEaseUI() ;
         payEaseUI.payEaseMenu();
+
   }
 }
 

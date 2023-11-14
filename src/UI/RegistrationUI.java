@@ -19,7 +19,7 @@ public boolean registrationTemplate(int choice,IDatabase database) {
     UserFactory factoryUser = new UserFactoryConcrete();
     User newUser = factoryUser.createUser(choice);
 
-    System.out.println("Please Enter the Phone Number linked to your Account:");
+    System.out.print("Please Enter the Phone Number linked to your Account:");
     String phoneNumber = scanner.nextLine();
 
     String Value =enterData(phoneNumber, register);
@@ -46,7 +46,7 @@ public boolean registrationTemplate(int choice,IDatabase database) {
             OTP otp = new OTP();
             String realOtp = otp.getOtp();
             System.out.println(realOtp);
-            System.out.println("Enter OTP: ");
+            System.out.print("Enter OTP: ");
             String otpInput = scanner.nextLine();
             boolean verify = register.OTPVerification(otpInput, otp);
             if (verify) {
@@ -61,11 +61,11 @@ public boolean registrationTemplate(int choice,IDatabase database) {
     private String[] EnterLoginData() {
         String username, password;
         do {
-            System.out.println("Please enter a unique username:");
+            System.out.print("Please enter a unique username:");
             username = scanner.nextLine();
         } while (!register.verifyUsername(username));
         do {
-            System.out.println("Please enter a complex password:");
+            System.out.print("Please enter a complex password:");
             password = scanner.nextLine();
         } while (!register.verifyPass(password));
 

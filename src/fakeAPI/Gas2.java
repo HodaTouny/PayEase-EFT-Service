@@ -1,15 +1,17 @@
 package fakeAPI;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Gas1 implements CompanyAPI{
+public class Gas2 implements CompanyAPI{
+
     @Override
     public String CreateBilll(String crn) {
         StringBuilder result = new StringBuilder();
         boolean found = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("src/fakeAPI/GasCompany1.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/fakeAPI/GasCompany2.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
