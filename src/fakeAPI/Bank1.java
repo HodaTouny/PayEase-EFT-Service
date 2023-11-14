@@ -76,7 +76,7 @@ public class Bank1 implements BankAPI {
 
 
     @Override
-    public boolean findUser(String cardNumber) {
+    public boolean verifyUser(String cardNumber) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split("\\|");
