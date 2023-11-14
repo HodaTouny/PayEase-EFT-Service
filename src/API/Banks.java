@@ -2,8 +2,7 @@ package API;
 
 import fakeAPI.Bank1;
 import fakeAPI.BankAPI;
-import fakeAPI.WalletAPI;
-import org.jetbrains.annotations.NotNull;
+
 
 public enum Banks {
     BANK1("10000", "19999") {

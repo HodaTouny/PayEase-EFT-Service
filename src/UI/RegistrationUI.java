@@ -21,7 +21,7 @@ public boolean registrationTemplate(int choice,IDatabase database) {
     String Value =enterData(phoneNumber, register);
     if(Value != null) {
         if (otpVerify()) {
-            String[] usernamePassword = EnterLoginData();
+            String[] usernamePassword = EnterLoginData(database);
             newUser.setUser(new String[]{usernamePassword[0], usernamePassword[1], "0.0", phoneNumber, newUser.getUserType(), Value});
         }
         if (!database.saveData(newUser)) {
@@ -54,12 +54,12 @@ public boolean registrationTemplate(int choice,IDatabase database) {
         return false;
     }
 
-    private String[] EnterLoginData() {
+    private String[] EnterLoginData(IDatabase database) {
         String username, password;
         do {
             System.out.print("Please enter a unique username:");
             username = scanner.nextLine();
-        } while (!register.verifyUsername(username));
+        } while (!register.verifyUsername(username,database));
         do {
             System.out.print("Please enter a complex password:");
             password = scanner.nextLine();

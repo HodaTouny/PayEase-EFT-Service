@@ -1,4 +1,5 @@
 package UI;
+import database.IDatabase;
 import user.Registration;
 import java.util.Scanner;
 
