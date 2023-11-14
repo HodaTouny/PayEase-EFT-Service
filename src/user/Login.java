@@ -3,13 +3,14 @@ package user;
 import database.FileDatabase;
 import database.IDatabase;
 
-public abstract class Login {
+public class Login {
     IDatabase fileDatabase = new FileDatabase();
     private User user;
 
     public boolean verifyCredentials(String userName,String password){
         user = fileDatabase.loadData(userName);
         if(user != null && user.getPassword().equals(password)){
+            loadUserProfile();
             return true;
         }
         return false;
