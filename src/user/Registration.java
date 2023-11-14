@@ -28,9 +28,6 @@ public abstract class Registration {
     }
 
     public abstract boolean APIVerification(String creditCardNumber,String phoneNum);
-    public void saveUsers(User user) {
-        database.saveData(user);
-    }
-    public abstract void register();
+
 
 }

@@ -1,10 +1,6 @@
 package UI;
 
-import API.gasCompanies;
 import API.waterCompanies;
-import user.User;
-
-import java.util.Scanner;
 
 public class waterPaymentUI extends BillPaymentUI {
 

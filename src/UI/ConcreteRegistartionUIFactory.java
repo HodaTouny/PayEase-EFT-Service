@@ -1,9 +1,5 @@
 package UI;
 
-import UI.RegistartionUiFactory;
-import UI.RegistrationUI;
-import UI.bankRegistrationUI;
-import UI.walletRegitstrationUI;
 
 public class ConcreteRegistartionUIFactory implements RegistartionUiFactory {
     @Override

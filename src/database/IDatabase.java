@@ -1,8 +1,5 @@
 package database;
-
 import user.User;
-
-import java.util.List;
 
 public interface IDatabase {
     public boolean saveData(User user);

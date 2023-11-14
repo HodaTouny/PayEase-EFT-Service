@@ -1,13 +1,9 @@
 package UI;
 
-import database.Database;
 import database.IDatabase;
 import fakeAPI.OTP;
 import user.*;
-
-import java.util.Optional;
 import java.util.Scanner;
-import java.util.Vector;
 
 public abstract class RegistrationUI {
     Registration register;
