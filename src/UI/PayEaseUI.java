@@ -55,8 +55,8 @@ public class PayEaseUI {
 
     private boolean handleLogin()
     {
-        LoginFactory factory = new ConcreteLoginFactory();
-        LoginUI loginUI = factory.createLogin(1);
+        LoginUIFactory factory = new LoginUIFactoryConcrete();
+        LoginUI loginUI = factory.createLoginUI(1);
         User user = loginUI.loginMenu(database);
         if (user != null) {
             LoggedUser = user.getData().split(",");

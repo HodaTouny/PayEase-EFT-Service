@@ -4,11 +4,10 @@ import UI.LoginUI;
 import UI.loginConcrete;
 
 public class ConcreteLoginFactory implements LoginFactory {
-
     @Override
-    public LoginUI createLogin(int choice) {
+    public Login createLogin(int choice) {
         if(choice == 1){
-            return new loginConcrete();
+            return new UsernameLogin();
         }else{
             throw new IllegalArgumentException("Invalid Login Option.");
         }
