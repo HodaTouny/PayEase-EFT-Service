@@ -1,43 +1,30 @@
 package transfer;
-import user.BankUser;
 import user.*;
-import fakeAPI.*;
 import database.*;
 import java.util.*;
 
 
-public class PayEaseTransfer implements Transfer {
+public class PayEaseTransfer extends Transfer {
+    IDatabase database = new Database();
 
     @Override
     public boolean transfer(double amount, String[] restData, User user) {
-        IDatabase database = new Database();
-        BankAPI bankAPI = new Bank1();
-        WalletAPI walletAPI = new Wallet1();
-        if (checkAccount(restData, user)) {
-            if(user instanceof BankUser){
-                BankUser bankUser = (BankUser) user;
-                if (bankAPI.withdraw(bankUser.getCardNumber(), amount) && database.deposit(restData[0], amount)) {
-                    System.out.println("Transfer done successfully");
-                    return true;
-                }
-        }else if(user instanceof WalletUser){
-                if (walletAPI.withdraw(user.getPhone(), amount) && database.deposit(restData[0], amount)) {
-                    System.out.println("Transfer done successfully");
-                    return true;
+            if (database.loadData(restData[0])!= null && (user.getUserName() != restData[0])) {
+                if (user.getUserType()== "wallet"){
+                    if (walletWithdraw(amount, user)){
+                        database.deposit(restData[0], amount);
+                        return true;
+                    }
+                }else if (user.getUserType()== "bank"){
+                    if (bankWithdraw(amount, user)){
+                        database.deposit(restData[0], amount);
+                        return true;
+                    }
+
                 }
             }
-        }
+            else {System.out.println("Receiver's username is not valid");
+            return false;}
         return false;
     }
-
-    @Override
-    public boolean checkAccount(String[] restData, User user) {
-        IDatabase database = new Database();
-        if(database.loadData(restData[0]) != null && restData[0]!=user.getUserName()){
-            return true;
-        }System.out.println("Invalid account");
-        return false;
-    }
-
-
 }

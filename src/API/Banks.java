@@ -3,6 +3,7 @@ package API;
 import fakeAPI.Bank1;
 import fakeAPI.BankAPI;
 import fakeAPI.WalletAPI;
+import org.jetbrains.annotations.NotNull;
 
 public enum Banks {
     BANK1("10000", "19999") {
@@ -37,11 +38,25 @@ public enum Banks {
         }
         return false;
     }
+    public boolean APIVerification( String creditCardNumber) {
+        if (isInRange(creditCardNumber.substring(0, 5))) {
+            BankAPI bankAPI = createBank();
+            return bankAPI.verifyUser(creditCardNumber);
+        }
+        return false;
+    }
 
     public boolean withdraw(String creditCardNumber, double amount) {
         if (isInRange(creditCardNumber.substring(0, 5))) {
             BankAPI bankAPI = createBank();
             return bankAPI.withdraw(creditCardNumber, amount);
+        }
+        return false;
+    }
+    public boolean deposit(String creditCardNumber, double amount) {
+        if (isInRange(creditCardNumber.substring(0, 5))) {
+            BankAPI bankAPI = createBank();
+            return bankAPI.deposit(creditCardNumber, amount);
         }
         return false;
     }
