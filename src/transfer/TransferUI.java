@@ -1,11 +1,10 @@
 package transfer;
-import user.*;
 
 import java.util.Scanner;
 
 public abstract class TransferUI {
-    TransferFacade transferFacade = new TransferFacade();
-    public void transferUITemplate(User user){
+    TransferManager transferManager = new TransferManager();
+    public void transferUITemplate(String[] user){
         Scanner scanner = new Scanner(System.in);
         String[] restData = getRestData();
         System.out.println("Enter amount: ");
@@ -17,5 +16,5 @@ public abstract class TransferUI {
         }
     }
     public abstract String[]  getRestData();
-    public abstract boolean transfer(double amount, String[] restData, User user);
+    public abstract boolean transfer(double amount, String[] restData, String[] user);
 }

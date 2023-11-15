@@ -1,21 +1,19 @@
 package transfer;
-import user.User;
 
 import java.util.Scanner;
 public class PayEaseTransferUI extends TransferUI{
-    TransferFacade transferFacade = new TransferFacade();
+    TransferManager transferManager = new TransferManager();
     @Override
     public String[] getRestData() {
         System.out.println("Enter username you want to transfer to: ");
         Scanner scanner = new Scanner(System.in);
         String username = scanner.nextLine();
-        String[] restData = {username};
-        return restData;
+        return new String[]{username};
     }
 
     @Override
-    public boolean transfer(double amount, String[] restData, User user) {
-        return transferFacade.PayEaseTransfer(amount,restData,user);
+    public boolean transfer(double amount, String[] restData, String[] user) {
+        return transferManager.PayEaseTransfer(amount,restData,user);
 
 
     }

@@ -2,11 +2,16 @@ package UI;
 
 import database.Database;
 import database.IDatabase;
+import transfer.BankTransferUI;
+import transfer.PayEaseTransferUI;
+import transfer.TransferUI;
+import transfer.WalletTransferUI;
 import user.*;
 
 import java.util.Scanner;
 
 import static java.lang.System.exit;
+import transfer.*;
 
 public class PayEaseUI {
     String [] LoggedUser;
@@ -44,13 +49,24 @@ public class PayEaseUI {
                 System.out.print("Please choose an option (1, 2, or 3): ");
                 choice2 = scanner.nextInt();
                 scanner.nextLine();
-                if (choice2 == 2) {
-                    handleBillPayment();
+
+                switch (choice2) {
+                    case 1:
+                        handleTransferMoney();
+                        break;
+                    case 2:
+                        handleBillPayment();
+                        break;
+                    case 3:
+                        System.out.println("Thank you for using PayEase. Have a great day!");
+                        break;
+                    default:
+                        System.out.println("Invalid option. Please choose again.");
                 }
             }
         }
-
     }
+
 
 
     private boolean handleLogin()
@@ -92,6 +108,31 @@ public class PayEaseUI {
         bill.BillTemplate(LoggedUser,bill);
     }
 
+    public void handleTransferMoney() {
+        System.out.println("1. Transfer to Wallet");
+        System.out.println("2. Transfer to PayEase Account");
+        if (LoggedUser[4].equals("bank")) {
+            System.out.println("3. Transfer to Bank Account");
+        }
 
+        System.out.print("Please enter the number corresponding to the transfer you want to make: ");
+        Scanner scanner = new Scanner(System.in);
+        String transferType = scanner.nextLine();
+
+        if (LoggedUser[4].equals("bank") && transferType.equals("3")) {
+            TransfersUIFactory factory = new TransfersUIFactoryConcrete();
+            TransferUI transferUI = factory.create(transferType);
+            transferUI.transferUITemplate(LoggedUser);
+        } else if (transferType.equals("1") || transferType.equals("2")) {
+            TransfersUIFactory factory = new TransfersUIFactoryConcrete();
+            TransferUI transferUI = factory.create(transferType);
+            transferUI.transferUITemplate(LoggedUser);
+        } else {
+            System.out.println("Invalid transfer option");
+        }
+    }
 }
+
+
+
 

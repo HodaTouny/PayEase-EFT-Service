@@ -1,5 +1,4 @@
 package transfer;
-import user.User;
 
 import java.util.Scanner;
 
@@ -8,17 +7,16 @@ public class BankTransferUI extends TransferUI{
     public String[] getRestData() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter bank name you want to transfer to: ");
-        String bankname = scanner.nextLine();
+        String bankName = scanner.nextLine();
         System.out.println("Enter credit number you want to transfer to: ");
-        String creditnumber = scanner.nextLine();
-        String[] restData = {bankname,creditnumber};
-        return restData;
+        String creditNumber = scanner.nextLine();
+        return new String[]{bankName,creditNumber};
 
     }
 
     @Override
-    public boolean transfer(double amount, String[] restData, User user) {
-        return transferFacade.BankTransfer(amount,restData,user);
+    public boolean transfer(double amount, String[] restData, String[] user) {
+        return transferManager.BankTransfer(amount,restData,user);
     }
 
 

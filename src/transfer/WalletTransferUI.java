@@ -1,6 +1,4 @@
 package transfer;
-import user.User;
-
 import java.util.Scanner;
 public class WalletTransferUI  extends TransferUI{
 
@@ -11,12 +9,11 @@ public class WalletTransferUI  extends TransferUI{
         String walletName = scanner.nextLine();
         System.out.println("Enter phone number you want to transfer to: ");
         String phoneNum = scanner.nextLine();
-        String[] restData = {walletName,phoneNum};
-        return restData;
+        return new String[]{walletName,phoneNum};
     }
 
     @Override
-    public boolean transfer(double amount, String[] restData, User user) {
-        return transferFacade.WalletTransfer(amount,restData,user);
+    public boolean transfer(double amount, String[] restData, String[] user) {
+        return transferManager.WalletTransfer(amount,restData,user);
     }
 }
