@@ -24,7 +24,6 @@ public class OTP {
     }
 
     public boolean verifyOTP(String userInput) {
-        System.out.println(otp);
         return userInput.equals(otp);
     }
 
