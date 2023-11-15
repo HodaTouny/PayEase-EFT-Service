@@ -39,7 +39,7 @@ public class PayEaseUI {
         toContinue = handleLogin();
         if (toContinue) {
             int choice2 = 0;
-            while (choice2 != 3) {
+            while (choice2 != 4) {
                 System.out.println("Welcome back, " + LoggedUser[0] + "!");
                 System.out.println("How may we assist you today?");
                 System.out.println("1. Transfer Money");
@@ -49,7 +49,6 @@ public class PayEaseUI {
                 System.out.print("Please choose an option (1, 2, or 3): ");
                 choice2 = scanner.nextInt();
                 scanner.nextLine();
-
                 switch (choice2) {
                     case 1:
                         handleTransferMoney();
