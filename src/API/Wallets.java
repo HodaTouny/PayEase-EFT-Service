@@ -25,9 +25,9 @@ public enum Wallets {
 
     public abstract WalletAPI createWallet();
 
-    public boolean APIVerification(String walletName, String phoneNumber) {
+    public boolean APIVerification(String phoneNumber) {
         WalletAPI walletAPI = createWallet();
-        return walletAPI.verifyUser(walletName, phoneNumber);
+        return walletAPI.verifyUser(phoneNumber);
     }
 
     public boolean withdraw(String phoneNumber, double amount) {

@@ -2,16 +2,11 @@ package UI;
 
 import database.Database;
 import database.IDatabase;
-import transfer.BankTransferUI;
-import transfer.PayEaseTransferUI;
-import transfer.TransferUI;
-import transfer.WalletTransferUI;
 import user.*;
 
 import java.util.Scanner;
 
 import static java.lang.System.exit;
-import transfer.*;
 
 public class PayEaseUI {
     String [] LoggedUser;

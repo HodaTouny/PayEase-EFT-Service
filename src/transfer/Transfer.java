@@ -3,7 +3,7 @@ import API.*;
 import user.*;
 
 public abstract class Transfer {
-    public  abstract boolean transfer(double amount, String[] restData, String[] user);
+    public  abstract boolean transfer(double amount, String restData, String[] user);
     public boolean bankWithdraw(double amount, String[] user){
         for (Banks bank : Banks.values()) {
             if (bank.APIVerification(user[5])) {
@@ -16,7 +16,7 @@ public abstract class Transfer {
     }
     public boolean walletWithdraw(double amount, String[] user){
         for (Wallets wallet : Wallets.values()) {
-            if (wallet.APIVerification(user[5], user[3])){
+            if (wallet.APIVerification( user[3])){
                 if (wallet.withdraw(user[3], amount)) {
                     return true;
                 }

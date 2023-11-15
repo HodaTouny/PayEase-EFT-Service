@@ -7,7 +7,7 @@ import java.io.FileWriter;
 public class Wallet1 implements WalletAPI {
     String filePath = "src/fakeAPI/walletuser.txt";
     String line;
-    public boolean verifyUser(String walletName,String phone){
+    public boolean verifyUser(String phone){
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("\\|");
