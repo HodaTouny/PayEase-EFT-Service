@@ -5,7 +5,11 @@ import transfer.TransferManager;
 import java.util.Scanner;
 
 public abstract class TransferUI {
-    TransferManager transferManager = new TransferManager();
+    TransferManager transferManager;
+
+    public TransferUI(TransferManager transferManage) {
+        transferManager = transferManage;
+    }
 
     public void transferUITemplate(String[] user) {
         Scanner scanner = new Scanner(System.in);

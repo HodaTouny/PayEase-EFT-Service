@@ -5,6 +5,7 @@ import database.IDatabase;
 import inquery.BalanceInquire;
 import inquery.InquireFactory;
 import inquery.inquireFactoryConcrete;
+import transfer.TransferManager;
 import user.*;
 
 import java.util.Scanner;
@@ -120,14 +121,14 @@ public class PayEaseUI {
         System.out.print("Please enter the number corresponding to the transfer you want to make: ");
         Scanner scanner = new Scanner(System.in);
         String transferType = scanner.nextLine();
-
+        TransferManager manager = new TransferManager();
         if (LoggedUser[4].equals("bank") && transferType.equals("3")) {
             TransfersUIFactory factory = new TransfersUIFactoryConcrete();
-            TransferUI transferUI = factory.create(transferType);
+            TransferUI transferUI = factory.create(transferType,manager);
             transferUI.transferUITemplate(LoggedUser);
         } else if (transferType.equals("1") || transferType.equals("2")) {
             TransfersUIFactory factory = new TransfersUIFactoryConcrete();
-            TransferUI transferUI = factory.create(transferType);
+            TransferUI transferUI = factory.create(transferType,manager);
             transferUI.transferUITemplate(LoggedUser);
         } else {
             System.out.println("Invalid transfer option");

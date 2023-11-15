@@ -1,11 +1,17 @@
 package UI;
 
 import UI.TransferUI;
+import transfer.BankTransfer;
+import transfer.PayEaseTransfer;
 import transfer.TransferManager;
 
 import java.util.Scanner;
 public class PayEaseTransferUI extends TransferUI {
-    TransferManager transferManager = new TransferManager();
+    PayEaseTransferUI(TransferManager transferManager){
+        super(transferManager);
+        transferManager.setTransfer(new PayEaseTransfer());
+    }
+
     @Override
     public String getRestData() {
         System.out.println("Enter username you want to transfer to: ");
@@ -16,7 +22,7 @@ public class PayEaseTransferUI extends TransferUI {
 
     @Override
     public boolean transfer(double amount, String restData, String[] user) {
-        return transferManager.PayEaseTransfer(amount,restData,user);
+        return transferManager.TransferMoney(amount,restData,user);
 
 
     }

@@ -1,9 +1,17 @@
 package UI;
 
 
+import transfer.BankTransfer;
+import transfer.PayEaseTransfer;
+import transfer.TransferManager;
+
 import java.util.Scanner;
 
 public class BankTransferUI extends TransferUI {
+    BankTransferUI(TransferManager transferManager) {
+        super(transferManager);
+        transferManager.setTransfer(new BankTransfer());
+    }
     @Override
     public String getRestData() {
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +23,7 @@ public class BankTransferUI extends TransferUI {
 
     @Override
     public boolean transfer(double amount, String restData, String[] user) {
-        return transferManager.BankTransfer(amount,restData,user);
+        return transferManager.TransferMoney(amount,restData,user);
     }
 
 

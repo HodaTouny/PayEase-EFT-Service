@@ -1,7 +1,7 @@
 package UI;
 
-import UI.TransferUI;
+import transfer.TransferManager;
 
 public interface TransfersUIFactory {
-    public TransferUI create(String num);
+    public TransferUI create(String num, TransferManager xx);
 }
