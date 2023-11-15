@@ -125,6 +125,7 @@ public class PayEaseUI {
         TransfersUIFactory factory = new TransfersUIFactoryConcrete();
         TransferUI transferUI = factory.create(transferType, manager);
         transferUI.handleTransfer(transferType,LoggedUser,transferUI);
+        System.out.println();
 
     }
     public void handleBalanceQuery() {
@@ -136,6 +137,7 @@ public class PayEaseUI {
         } else {
             System.out.println("Invalid user type for balance inquiry.");
         }
+        System.out.println();
     }
 
 }

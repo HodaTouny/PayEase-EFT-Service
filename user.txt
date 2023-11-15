@@ -1,3 +1,3 @@
-HodaSamir,HodaSamir22#,2320.0,01060584671,bank,156789012345678901
+HodaSamir,HodaSamir22#,0.0,01060584671,bank,156789012345678901
 HodaTouny,HodaTouny2@,0.0,01009585481,bank,103456789012345678
-maya,HodaSamir22#,120.0,01018360646,wallet,wallet1
+MayaHesham,Mayahesham33#,0.0,01018360646,wallet,Wallet1
