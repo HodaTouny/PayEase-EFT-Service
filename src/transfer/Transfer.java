@@ -1,6 +1,5 @@
 package transfer;
-import API.*;
-import user.*;
+import APICallers.*;
 
 public abstract class Transfer {
     public  abstract boolean transfer(double amount, String restData, String[] user);

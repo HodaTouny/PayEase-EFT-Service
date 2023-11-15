@@ -1,6 +1,6 @@
 package UI;
 
-import API.gasCompanies;
+import APICallers.gasCompanies;
 
 public class gasPaymentUI extends BillPaymentUI {
 

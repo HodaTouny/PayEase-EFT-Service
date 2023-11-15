@@ -91,6 +91,21 @@ public class Bank1 implements BankAPI {
         return false;
 
     }
+    public double getBalance(String phonenumber) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split("\\|");
+                if (data[0].equals(phonenumber)) {
+                    return Double.parseDouble(data[2]);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return 0.0;
+    }
+
 
 }
 

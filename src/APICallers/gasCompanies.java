@@ -1,11 +1,10 @@
-package API;
+package APICallers;
 
 import bills.IBill;
 import fakeAPI.CompanyAPI;
 
 import fakeAPI.Gas1;
 import fakeAPI.Gas2;
-import fakeAPI.Water1;
 
 public enum gasCompanies implements IBill {
     Gas1("1") {

@@ -1,6 +1,6 @@
 package UI;
 
-import API.ElectricityCompanies;
+import APICallers.ElectricityCompanies;
 
 public class electricityPaymentUI extends BillPaymentUI{
 

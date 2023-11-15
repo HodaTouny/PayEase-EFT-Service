@@ -1,6 +1,5 @@
-package API;
+package APICallers;
 
-import fakeAPI.BankAPI;
 import fakeAPI.Wallet1;
 import fakeAPI.WalletAPI;
 
@@ -33,6 +32,10 @@ public enum Wallets {
     public boolean withdraw(String phoneNumber, double amount) {
         WalletAPI walletAPI = createWallet();
         return walletAPI.withdraw(phoneNumber, amount);
+    }
+    public double getBalance(String phonenumber){
+        WalletAPI walletAPI= createWallet();
+        return  walletAPI.getBalance(phonenumber);
     }
     public boolean deposit(String phoneNumber, double amount) {
         WalletAPI walletAPI = createWallet();

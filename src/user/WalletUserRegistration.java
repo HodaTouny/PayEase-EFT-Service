@@ -1,6 +1,6 @@
 package user;
 
-import API.Wallets;
+import APICallers.Wallets;
 
 public class WalletUserRegistration extends Registration{
         public boolean APIVerification(String walletName, String phoneNumber) {

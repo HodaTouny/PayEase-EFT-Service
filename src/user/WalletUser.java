@@ -1,5 +1,7 @@
 package user;
 
+import fakeAPI.Wallet1;
+
 public class WalletUser extends User{
     private String walletName;
     public WalletUser() {
@@ -45,6 +47,7 @@ public class WalletUser extends User{
             setWalletName(Data[5]);
         }
     }
+
 
 
 }

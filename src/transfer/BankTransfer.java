@@ -1,6 +1,6 @@
 package transfer;
 
-import API.*;
+import APICallers.*;
 
 public class BankTransfer extends Transfer {
 

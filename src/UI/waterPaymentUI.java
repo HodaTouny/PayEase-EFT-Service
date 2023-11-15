@@ -1,6 +1,6 @@
 package UI;
 
-import API.waterCompanies;
+import APICallers.waterCompanies;
 
 public class waterPaymentUI extends BillPaymentUI {
 

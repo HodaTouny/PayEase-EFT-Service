@@ -2,6 +2,9 @@ package UI;
 
 import database.Database;
 import database.IDatabase;
+import inquery.BalanceInquire;
+import inquery.InquireFactory;
+import inquery.inquireFactoryConcrete;
 import user.*;
 
 import java.util.Scanner;
@@ -10,6 +13,7 @@ import static java.lang.System.exit;
 
 public class PayEaseUI {
     String [] LoggedUser;
+    User user;
     IDatabase database = new Database();
     private final Scanner scanner;
 
@@ -40,7 +44,8 @@ public class PayEaseUI {
                 System.out.println("How may we assist you today?");
                 System.out.println("1. Transfer Money");
                 System.out.println("2. Pay Bills");
-                System.out.println("3. Exit");
+                System.out.println("3. inquire balance");
+                System.out.println("4. Exit");
                 System.out.print("Please choose an option (1, 2, or 3): ");
                 choice2 = scanner.nextInt();
                 scanner.nextLine();
@@ -53,6 +58,9 @@ public class PayEaseUI {
                         handleBillPayment();
                         break;
                     case 3:
+                        handleBalanceQuery();
+                        break;
+                    case 4:
                         System.out.println("Thank you for using PayEase. Have a great day!");
                         break;
                     default:
@@ -68,7 +76,7 @@ public class PayEaseUI {
     {
         LoginUIFactory factory = new LoginUIFactoryConcrete();
         LoginUI loginUI = factory.createLoginUI(1);
-        User user = loginUI.loginMenu(database);
+         user = loginUI.loginMenu(database);
         if (user != null) {
             LoggedUser = user.getData().split(",");
             return true;
@@ -126,6 +134,17 @@ public class PayEaseUI {
             System.out.println("Invalid transfer option");
         }
     }
+    public void handleBalanceQuery() {
+        InquireFactory InquireFactory = new inquireFactoryConcrete();
+        BalanceInquire balanceInquire = InquireFactory.create(LoggedUser[4]);
+        if (balanceInquire != null) {
+            double balance = balanceInquire.getBalance(LoggedUser[3]);
+            System.out.println("Your current balance is: " + balance);
+        } else {
+            System.out.println("Invalid user type for balance inquiry.");
+        }
+    }
+
 }
 
 

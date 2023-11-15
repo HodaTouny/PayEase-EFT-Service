@@ -1,4 +1,4 @@
-package API;
+package APICallers;
 
 import fakeAPI.Bank1;
 import fakeAPI.BankAPI;
@@ -52,6 +52,10 @@ public enum Banks {
         }
         return false;
     }
+   public double getBalance(String phonenumber){
+        BankAPI bankAPI= createBank();
+        return  bankAPI.getBalance(phonenumber);
+   }
     public boolean deposit(String creditCardNumber, double amount) {
         if (isInRange(creditCardNumber.substring(0, 5))) {
             BankAPI bankAPI = createBank();

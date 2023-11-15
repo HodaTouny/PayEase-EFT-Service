@@ -1,5 +1,5 @@
 package transfer;
-import API.*;
+import APICallers.*;
 
 public class WalletTransfer extends Transfer {
 

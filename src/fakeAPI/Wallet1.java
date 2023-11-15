@@ -74,5 +74,19 @@ public class Wallet1 implements WalletAPI {
         return true;
     }
 
+    public double getBalance(String phone) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split("\\|");
+                if (data.length >= 2 && data[0].equals(phone)) {
+                    return Double.parseDouble(data[1]);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
+
 
 }

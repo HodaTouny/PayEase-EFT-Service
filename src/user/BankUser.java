@@ -1,5 +1,7 @@
 package user;
 
+import fakeAPI.Bank1;
+
 public class BankUser extends User{
     private String creditCard ;
     public BankUser() {
@@ -48,6 +50,7 @@ public class BankUser extends User{
             setCardNumber(Data[5]);
         }
     }
+
 
 
 }

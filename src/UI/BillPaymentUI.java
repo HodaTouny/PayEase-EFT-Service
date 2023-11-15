@@ -1,7 +1,7 @@
 package UI;
 
-import API.Banks;
-import API.Wallets;
+import APICallers.Banks;
+import APICallers.Wallets;
 import bills.billPrinter;
 import java.util.Scanner;
 

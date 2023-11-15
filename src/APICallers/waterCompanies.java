@@ -1,4 +1,4 @@
-package API;
+package APICallers;
 
 import bills.IBill;
 import fakeAPI.CompanyAPI;

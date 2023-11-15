@@ -1,6 +1,6 @@
 package user;
 
-import API.Banks;
+import APICallers.Banks;
 
 public class BankUserRegistration extends Registration{
     public boolean APIVerification(String creditCardNumber,String phone) {

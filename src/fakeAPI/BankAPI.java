@@ -5,4 +5,5 @@ public interface BankAPI {
     public boolean withdraw(String cardNumber, double amount);
     public boolean deposit(String cardNumber, double amount);
     public boolean verifyUser(String cardNumber);
+    public double getBalance(String phonenumber);
 }
