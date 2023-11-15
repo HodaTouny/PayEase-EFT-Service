@@ -122,17 +122,10 @@ public class PayEaseUI {
         Scanner scanner = new Scanner(System.in);
         String transferType = scanner.nextLine();
         TransferManager manager = new TransferManager();
-        if (LoggedUser[4].equals("bank") && transferType.equals("3")) {
-            TransfersUIFactory factory = new TransfersUIFactoryConcrete();
-            TransferUI transferUI = factory.create(transferType,manager);
-            transferUI.transferUITemplate(LoggedUser);
-        } else if (transferType.equals("1") || transferType.equals("2")) {
-            TransfersUIFactory factory = new TransfersUIFactoryConcrete();
-            TransferUI transferUI = factory.create(transferType,manager);
-            transferUI.transferUITemplate(LoggedUser);
-        } else {
-            System.out.println("Invalid transfer option");
-        }
+        TransfersUIFactory factory = new TransfersUIFactoryConcrete();
+        TransferUI transferUI = factory.create(transferType, manager);
+        transferUI.handleTransfer(transferType,LoggedUser,transferUI);
+
     }
     public void handleBalanceQuery() {
         InquireFactory InquireFactory = new inquireFactoryConcrete();

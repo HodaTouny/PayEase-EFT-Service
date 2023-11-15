@@ -34,4 +34,14 @@ public abstract class TransferUI {
     public abstract String getRestData();
 
     public abstract boolean transfer(double amount, String restData, String[] user);
+
+    public void handleTransfer(String transferType, String[] loggedUser,TransferUI transferUI) {
+        if (loggedUser[4].equals("bank") && transferType.equals("3")) {
+            transferUI.transferUITemplate(loggedUser);
+        } else if (transferType.equals("1") || transferType.equals("2")) {
+            transferUI.transferUITemplate(loggedUser);
+        } else {
+            System.out.println("Invalid transfer option");
+        }
+    }
 }
