@@ -23,7 +23,8 @@ public class WalletTransfer extends Transfer {
                     }
 
                 }
-            }else{
+            }
+            else{
             System.out.println("Receiver's wallet is not valid");
             return false;}
         }
